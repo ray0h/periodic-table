@@ -4,7 +4,7 @@ body {
 }
 
 .App {
-  
+  color: #ddd;
 }
 
 .period {
@@ -15,13 +15,13 @@ body {
 .empty {
   width: 50px;
   height: 50px;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
 }
 
 .box {
   width: 50px;
   height: 50px;
-  border: 1px solid black;
+  border: 2px solid transparent;
   background-color: rgb(65, 63, 63);
 }
 
@@ -75,17 +75,21 @@ body {
 }
 
 .react_nonmetal {
-  background-color: #e77110dc
+  background-color: #e77110dc;
 }
 
 .noble {
-  background-color: #8410c7dc
+  background-color: #8410c7dc;
 }
 
 .lanthanoid {
-  background-color: #4949d4
+  background-color: #4949d4;
 }
 
 .actinoid {
-  background-color: #cf2828
+  background-color: #cf2828;
+}
+
+.highlight {
+  border: solid 2px darkblue;
 }

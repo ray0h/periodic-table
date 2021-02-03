@@ -1,3 +1,4 @@
+// deg C
 const boilPt = [
   { id: 1, data: -252.9 },
   { id: 2, data: -269.0 },
