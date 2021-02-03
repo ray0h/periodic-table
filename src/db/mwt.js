@@ -1,4 +1,4 @@
-const dataset = [
+const mwt = [
   { id: 1, data: 1.008 },
   { id: 2, data: 4.0026 },
   { id: 3, data: 6.94 },
@@ -116,8 +116,7 @@ const dataset = [
   { id: 115, data: 289.20 },
   { id: 116, data: 293.20 },
   { id: 117, data: 293.21 },
-  { id: 118, data: 294.21 },
-
+  { id: 118, data: 294.21 }
 ];
 
-export default dataset
+export default mwt
