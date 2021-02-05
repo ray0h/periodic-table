@@ -54,6 +54,14 @@ body {
   font-size: 11px;
 }
 
+.info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 500px;
+  padding: 5px;
+};
+
 .alkali {
   background-color: #15b42fb6
 }
@@ -92,4 +100,5 @@ body {
 
 .highlight {
   border: solid 2px darkblue;
+  
 }

@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-const Box = ({ element, data }) => {
+const Box = ({ element, data, elemSetter }) => {
+  const [ elemId, setElemId ] = useState(0);
+
+  useEffect(() => {
+    elemSetter(elemId);
+  }, [elemSetter, elemId] );
+
   function highlight(e) {
     if (e.currentTarget.id >= 1 && e.currentTarget.id < 119) {
-      console.log(e.currentTarget.id)
+      setElemId(e.currentTarget.id);
       let prev = document.getElementsByClassName('highlight')[0];
       if (prev) {
         prev.classList.remove('highlight');

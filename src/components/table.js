@@ -1,9 +1,9 @@
 import React from 'react';
 import Box from './box';
-import elements from './elements';
-import periods from './periods';
+import elements from '../db/elements';
+import periods from '../db/periods';
 
-const Table = ({ dataset }) => {
+const Table = ({ dataset, elemSetter }) => {
   return (
     <div className="table">
       {
@@ -22,9 +22,9 @@ const Table = ({ dataset }) => {
               {period.map(id => {
               let element = elements.filter(element => element.id === id);
               let data = dataset.filter(data => data.id === id);
-              return <Box key={id} element={element.length === 0 ? null : element[0]} data={data.length === 0 ? null : data[0]} />
-            })}
-          </div>
+              return <Box key={id} element={element.length === 0 ? null : element[0]} data={data.length === 0 ? null : data[0] } elemSetter={elemSetter} />
+              })}
+            </div>
           )
         })
       }

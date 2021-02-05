@@ -36,7 +36,7 @@ const density = [
   { id: 35, data: 3.122 },
   { id: 36, data: 0.003733 },
   { id: 37, data: 1.532 },
-  { id: 38, data: 2,64 },
+  { id: 38, data: 2.64 },
   { id: 39, data: 4.469 },
   { id: 40, data: 6.506 },
   { id: 41, data: 8.57 },
@@ -119,4 +119,4 @@ const density = [
   { id: 118, data: '-' }
 ];
 
-export default boilPt
+export default density
