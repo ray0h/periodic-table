@@ -4,6 +4,7 @@ import elements from '../db/elements';
 import periods from '../db/periods';
 
 const Table = ({ dataset, elemSetter }) => {
+
   return (
     <div className="table">
       {

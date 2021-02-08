@@ -1,30 +1,25 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import Table from './components/table';
 import elements from './db/elements';
-import mwt from './db/mwt';
-import electroneg from './db/electroneg';
-import boilPt from './db/boilPt';
-import meltPt from './db/meltPt';
-import density from './db/density';
-import calcAtomRad from './db/calcAtomRad';
-import empAtomRad from './db/empAtomRad';
+import dataset from './db/data';
+
 import './App.css';
 
 function App() {
-  const [ data, setData ] = useState(mwt);
+  const [ data, setData ] = useState(dataset.map(elem => ({id: elem.id, data: elem.mwt}) ));
   const [ elem, setElem ] = useState(0);
   const [ elemData, setElemData ] = useState([]);
 
   useEffect(() => {
     if (elem !== 0) {
       let name = elements.filter(el => el.id === Number(elem) )[0].name;
-      let mw = mwt.filter(el => el.id === Number(elem) )[0].data;
-      let en = electroneg.filter(el => el.id === Number(elem) )[0].data;
-      let bp = boilPt.filter(el => el.id === Number(elem) )[0].data;
-      let mp = meltPt.filter(el => el.id === Number(elem) )[0].data;
-      let dn = density.filter(el => el.id === Number(elem) )[0].data;
-      let car = calcAtomRad.filter(el => el.id === Number(elem) )[0].data;
-      let ear = empAtomRad.filter(el => el.id === Number(elem) )[0].data;
+      let mw = dataset.filter(el => el.id === Number(elem) )[0].mwt;
+      let en = dataset.filter(el => el.id === Number(elem) )[0].electroneg;
+      let bp = dataset.filter(el => el.id === Number(elem) )[0].boilPt;
+      let mp = dataset.filter(el => el.id === Number(elem) )[0].meltPt;
+      let dn = dataset.filter(el => el.id === Number(elem) )[0].density;
+      let car = dataset.filter(el => el.id === Number(elem) )[0].calcAtomRad;
+      let ear = dataset.filter(el => el.id === Number(elem) )[0].empAtomRad;
       console.log(elem, mw)
       setElemData([{
         name,
@@ -46,25 +41,24 @@ function App() {
   const selectData = (e) => {
     switch(e.target.value) {
       case 'bp': 
-        console.log('switched')
-        setData(boilPt);
+        setData(dataset.map(elem => ({id: elem.id, data: elem.boilPt}) ));
         break;
       case 'mp':
-        setData(meltPt);
+        setData(dataset.map(elem => ({id: elem.id, data: elem.meltPt}) ));
         break;
       case 'den':
-        setData(density);
+        setData(dataset.map(elem => ({id: elem.id, data: elem.density}) ));
         break;
       case 'en': 
-        setData(electroneg);
+        setData(dataset.map(elem => ({id: elem.id, data: elem.electroneg}) ));
         break;
       case 'ear': 
-        setData(empAtomRad);
+        setData(dataset.map(elem => ({id: elem.id, data: elem.empAtomRad}) ));
         break;
       case 'car': 
-        setData(calcAtomRad);
+        setData(dataset.map(elem => ({id: elem.id, data: elem.calcAtomRad}) ));
         break;
-        default: setData(mwt);
+        default: setData(dataset.map(elem => ({id: elem.id, data: elem.mwt}) ));
     }
   };
 

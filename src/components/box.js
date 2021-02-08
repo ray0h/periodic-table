@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import { v4 as uuidv4 } from 'uuid';
 const Box = ({ element, data, elemSetter }) => {
   const [ elemId, setElemId ] = useState(0);
 
@@ -19,7 +19,7 @@ const Box = ({ element, data, elemSetter }) => {
     }
   }
   return (
-    <div id={element ? element.id : ''} className={element ? 'box ' + element.group.join(' '): 'empty'} onClick={highlight}>
+    <div id={element ? element.id : uuidv4()} className={element ? 'box ' + element.group.join(' '): 'empty'} onClick={highlight}>
       <div className="idcont">
         <div className="number" style = { (element && element.id > 99) ? { fontSize: 12 } : {fontSize: 14 } }>{element ? element.id : ''}</div>
         <div className="symbol">{element ? element.symbol : ''}</div>
