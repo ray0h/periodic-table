@@ -1,15 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
-const Box = ({ element, data, elemSetter }) => {
-  const [ elemId, setElemId ] = useState(0);
 
-  useEffect(() => {
-    elemSetter(elemId);
-  }, [elemSetter, elemId] );
+const Box = ({ element, data, elemSetter }) => {
 
   function highlight(e) {
     if (e.currentTarget.id >= 1 && e.currentTarget.id < 119) {
-      setElemId(e.currentTarget.id);
+      elemSetter(e.currentTarget.id)
       let prev = document.getElementsByClassName('highlight')[0];
       if (prev) {
         prev.classList.remove('highlight');
@@ -19,7 +15,7 @@ const Box = ({ element, data, elemSetter }) => {
     }
   }
   return (
-    <div id={element ? element.id : uuidv4()} className={element ? 'box ' + element.group.join(' '): 'empty'} onClick={highlight}>
+    <div id={element ? element.id : uuidv4()} className={element ? 'box ' + element.group.join(' '): 'empty'} onClick={highlight} style={element ? {gridArea:'g'+element.id} : {}}>
       <div className="idcont">
         <div className="number" style = { (element && element.id > 99) ? { fontSize: 12 } : {fontSize: 14 } }>{element ? element.id : ''}</div>
         <div className="symbol">{element ? element.symbol : ''}</div>
