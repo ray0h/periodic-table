@@ -7,7 +7,7 @@ function App() {
   const [ data, setData ] = useState(dataset.map(elemId => ({id: elemId.id, data: elemId['mwt']}) ));
   const [ elemId, setElemId ] = useState(0);
   
-  const wrapFn = useCallback(val => {
+  const elemSetterWrapper = useCallback(val => {
     setElemId(val);
   }, [setElemId]);
 
@@ -36,7 +36,7 @@ function App() {
           </select>
         </div>
         
-        <Table data={data} dataset={dataset} elemSetter={wrapFn} elemId={elemId} />
+        <Table data={data} dataset={dataset} elemSetter={elemSetterWrapper} elemId={elemId} />
       </div>
     </div>
   );
