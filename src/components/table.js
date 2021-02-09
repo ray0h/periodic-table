@@ -1,29 +1,30 @@
 import React from 'react';
 import Box from './box';
+import ElementInfo from './elementInfo';
+import Label from './label';
 import elements from '../db/elements';
 import periods from '../db/periods';
 
 const Table = ({ data, dataset, elemSetter, elemId }) => {
   const dset = dataset.filter(elem => elem.id === Number(elemId));
-
+  const glabels = Array.from(Array(18), (_, i) => i+1);
+  const plabels = [1,2,3,4,5,6,7,6,7]
   return (
     <div className="table" >
-       {(dset.length === 0)
-          ? <div className="info"></div> 
-          : <div className="info">
-            <div>
-              <span>Name: {dset[0].name}</span><br/>
-              <span>MW: {dset[0].mwt}</span><br/>
-              <span>Boiling Pt (&#8451;): {dset[0].boilPt}</span><br/>
-              <span>Melting Pt (&#8451;): {dset[0].meltPt}</span><br/>
-            </div>
-            <div>
-              <span>Density (g/cm<sup>3</sup>): {dset[0].density}</span><br/>
-              <span>Electronegativity: {dset[0].electroneg}</span><br/>
-              <span>Atomic Radius, calc (pm): {dset[0].calcAtomRad}</span><br/>
-              <span>Atomic Radius, emp (pm): {dset[0].empAtomRad}</span><br/>
-            </div>
-          </div> }
+      <ElementInfo dataset={dset}/>
+      
+      { 
+        glabels.map((group,ind) => {
+          let style = { gridArea: `h${ind+1}`}
+          return ( <Label key={`h${ind}`} style={style} label={group}/>)
+        })
+      }
+      {
+        plabels.map((period, ind) => {
+          let style = { gridArea: `v${ind+1}`}
+          return( <Label key={`v${ind}`} style={style} label={period}/>)
+        })
+      }
       {
         periods.map((id)=> {
           let element = elements.filter(e=> e.id === id);

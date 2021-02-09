@@ -13,9 +13,10 @@ const Box = ({ element, data, elemSetter }) => {
       let box = document.getElementById(e.currentTarget.id);
       box.classList.add('highlight');
     }
-  }
+  };
+  
   return (
-    <div id={element ? element.id : uuidv4()} className={element ? 'box ' + element.group.join(' '): 'empty'} onClick={highlight} style={element ? {gridArea:'g'+element.id} : {}}>
+    <div id={element ? element.id : uuidv4()} className={element ? 'box ' + element.group.join(' '): 'empty'} onClick={highlight} style={element ? { gridArea:'g'+element.id } : {}}>
       <div className="idcont">
         <div className="number" style = { (element && element.id > 99) ? { fontSize: 12 } : {fontSize: 14 } }>{element ? element.id : ''}</div>
         <div className="symbol">{element ? element.symbol : ''}</div>
