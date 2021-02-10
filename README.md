@@ -10,5 +10,5 @@ whole table.  Clicking on the individual element boxes highlights it and shows a
 Various element groupings (e.g. alkali metals) are color coded and can be highlighted on mouseover.  
 
 
-## Live version can be found [here - TBD]()
+## Live version can be found [here](https://ray0h.github.io/periodic-table)
 
