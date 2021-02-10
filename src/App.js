@@ -7,20 +7,25 @@ function App() {
   const [ data, setData ] = useState(dataset.map(elemId => ({id: elemId.id, data: elemId['mwt']}) ));
   const [ elemId, setElemId ] = useState(0);
   
+  const selectData = (e) => setData(dataset.map(elemId => ({ id: elemId.id, data: elemId[e.target.value]}) ));
   const elemSetterWrapper = useCallback(val => {
-    setElemId(val);
+  setElemId(val);
   }, [setElemId]);
-
-  const selectData = (e) => {
-    setData(dataset.map(elemId => ({ id: elemId.id, data: elemId[e.target.value]}) ));
+  const clearHighlight = (e) => {
+    if (!e.target.className.includes('elem')) {
+      let prev = document.getElementsByClassName('highlight')[0];
+      if (prev) { prev.classList.remove('highlight'); }
+      setElemId(0);
+    }
   };
 
   return (
-    <div style={{display: 'flex', justifyContent: 'center'}}>
-      <div className="App">
-        <div style={{marginLeft: 30, marginBottom: 10}}>
-          <h1>Periodic Table</h1>
-          <select id="dataSelection" onChange={selectData}>
+    <div className="App" style={{width: '90%', margin: 'auto'}} onClick={clearHighlight}>
+      <div style={{marginLeft: 30, marginBottom: 10}}>
+        <h1>Periodic Table</h1>
+        <span>
+          Data: 
+          <select className="elem" id="dataSelection" onChange={selectData}>
             <option value="mwt" default>Molecular Weight</option>
             <option value="boilPt">Boiling Pt</option>
             <option value="meltPt">Melting Pt</option>
@@ -34,10 +39,10 @@ function App() {
             <option value="condThermal">Thermal Conductivity</option>
             <option value="oxidState">Common Oxid States</option>
           </select>
-        </div>
-        
-        <Table data={data} dataset={dataset} elemSetter={elemSetterWrapper} elemId={elemId} />
+        </span>
       </div>
+        
+      <Table data={data} dataset={dataset} elemSetter={elemSetterWrapper} elemId={elemId} />
     </div>
   );
 };

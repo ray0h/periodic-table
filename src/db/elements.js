@@ -34,7 +34,7 @@ const elements = [
   { id: 33, symbol: 'As', name: 'Arsenic', group: ['metalloid'] },
   { id: 34, symbol: 'Se', name: 'Selenium', group: ['react_nonmetal', 'nonmetal'] },
   { id: 35, symbol: 'Br', name: 'Bromine', group: ['react_nonmetal', 'nonmetal'] },
-  { id: 36, symbol: 'Kr', name: 'Kypton', group: ['noble', 'nonmetal'] },
+  { id: 36, symbol: 'Kr', name: 'Krypton', group: ['noble', 'nonmetal'] },
   { id: 37, symbol: 'Rb', name: 'Rubidium', group: ['alkali', 'metal'] },
   { id: 38, symbol: 'Sr', name: 'Strontium', group: ['alkaline', 'metal'] },
   { id: 39, symbol: 'Y', name: 'Yttrium', group: ['transition', 'metal'] },

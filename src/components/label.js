@@ -1,9 +1,5 @@
 import React from 'react';
 
-function Label({style, label}) {
-  return (
-    <div className="label" style={style}>{label}</div>
-  )
-};
+const Label = ({style, label}) => <div className="label" style={style}>{label}</div>
 
 export default Label;

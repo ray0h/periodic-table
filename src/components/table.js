@@ -1,6 +1,6 @@
 import React from 'react';
 import Box from './box';
-import ElementInfo from './elementInfo';
+import InfoBar from './infobar';
 import Label from './label';
 import elements from '../db/elements';
 import periods from '../db/periods';
@@ -25,15 +25,15 @@ const Table = ({ data, dataset, elemSetter, elemId }) => {
           return( <Label key={`v${ind}`} style={style} label={period}/>)
         })
       }
-      {/* element info bar */}
-      <ElementInfo dataset={dset}/>
+      {/* info bar (element/groups) */}
+      <InfoBar dataset={dset}/>
       {/* individual element boxes */}
       {
         periods.map( id => {
           let element = elements.filter(e=> e.id === id);
-          let dat = data.filter(e => e.id === id);
+          let value = data.filter(e => e.id === id);
           return (
-            <Box key={id} element={element.length === 0 ? null : element[0]} data={dat.length === 0 ? null : dat[0] } elemSetter={elemSetter}/>
+            <Box key={id} element={element.length === 0 ? null : element[0]} data={value.length === 0 ? null : value[0] } elemSetter={elemSetter}/>
           )
         })
       }
