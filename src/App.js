@@ -9,7 +9,7 @@ function App() {
   
   const selectData = (e) => setData(dataset.map(elemId => ({ id: elemId.id, data: elemId[e.target.value]}) ));
   const elemSetterWrapper = useCallback(val => {
-  setElemId(val);
+    setElemId(val);
   }, [setElemId]);
   const clearHighlight = (e) => {
     if (!e.target.className.includes('elem')) {
