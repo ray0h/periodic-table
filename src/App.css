@@ -75,7 +75,6 @@ select {
   text-align: center;
 }
 
-
 .symbol {
   text-align: center;
   font-size: 18px;
@@ -187,7 +186,6 @@ select {
 }
 
 .muteBox {
-  /* background-color: rgb(65, 63, 63); */
   background-color: #111;
   transition: background-color 0.5s;
 }

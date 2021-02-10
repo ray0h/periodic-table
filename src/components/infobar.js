@@ -32,7 +32,11 @@ const InfoBar = ({dataset}) => {
         <div onMouseOver={highlightGroup} onMouseOut={clearGroupHighlight} className="info-group">
           <div className="group" id="metal">metals</div>
           <div className="group" id="metalloid" >metalloids</div>
-          <div className="group" id="nonmetal">non metals</div>
+          <div className="group" id="nonmetal">non metals</div>          
+          <br/>
+          <br/>
+          <br/>
+          <div style={{color: 'dodgerblue', fontWeight: 'bold'}}>Click on an element to see its dataset</div>
         </div>
         <div onMouseOver={highlightGroup} onMouseOut={clearGroupHighlight} className="info-group">
           <div className="group" id="alkali">alkali metals</div>
@@ -74,10 +78,11 @@ const InfoBar = ({dataset}) => {
                   <option value='heatSpecific' default>Specific (J/kgK)</option>
                   <option value='heatFusion'>Fusion (kJ/mol)</option>
                   <option value='heatVapor'>Vaporization (kJ/mol)</option>
-                </select> 
+                </select>
               </span>
               <span>{dataset[0][heat]}</span>
             </div>
+            <span style={{color: 'dodgerblue', fontWeight: 'bold'}}>Click off table or here to return to Series layout</span>
           </div>
           <div className="elem info-box" id='right_info'>
             <br/>
