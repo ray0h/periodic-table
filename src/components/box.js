@@ -22,7 +22,7 @@ const Box = ({ element, data, elemSetter }) => {
         <div className="elem symbol">{element ? element.symbol : ''}</div>
       </div>
       <div className="elem datacont">
-        <div className="elem name" style = { (element && element.name.length < 10) ? { fontSize: 9 } : { fontSize: 7 } }>{element ? element.name : ''}</div>
+        <div className="elem name" style = { (element && element.name.length < 9) ? { fontSize: 11 } : (element && element.name.length) < 11 ? { fontSize: 9 }: { fontSize: 8 } }>{element ? element.name : ''}</div>
         <div className="elem" style={{fontSize: 11}}>{data ? data.data : ''}</div>
       </div>
     </div>
